@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chava Sai Sujith | Portfolio</title>
+<style>
+:root{--bg:#fafaf7;--card:#fff;--text:#1d2433;--muted:#5d6678;--accent:#2f5bea;--line:#e4e6ec;--ok:#16a34a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10131a;--card:#181c26;--text:#eceff6;--muted:#9aa3b5;--accent:#7b9bff;--line:#2a3040;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10131a;--card:#181c26;--text:#eceff6;--muted:#9aa3b5;--accent:#7b9bff;--line:#2a3040;color-scheme:dark}
+html{scroll-padding-top:70px;scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header.bar{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:56px}
+.logo{font-weight:700}
+nav{display:flex;gap:4px;overflow-x:auto}
+nav a{color:var(--muted);text-decoration:none;font-size:14px;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav a:hover,nav a.on{color:var(--accent);background:var(--card)}
+#theme{background:var(--card);border:1px solid var(--line);color:var(--text);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:14px}
+.hero{padding:56px 0 44px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);padding:5px 12px;border-radius:999px;font-size:13px;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(22,163,74,.5)}100%{box-shadow:0 0 0 10px rgba(22,163,74,0)}}
+h1{font-size:clamp(32px,7vw,54px);line-height:1.1;margin:16px 0 10px}
+.role{font-size:clamp(18px,4vw,24px);color:var(--accent);font-weight:600;min-height:1.6em}
+.caret{display:inline-block;width:2px;height:1em;background:var(--accent);margin-left:2px;vertical-align:-2px;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero p{color:var(--muted);max-width:600px;font-size:18px;margin:12px 0 24px}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:600;margin:0 8px 8px 0;border:0;cursor:pointer;font-size:16px;font-family:inherit}
+.btn.alt{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn:hover{transform:translateY(-2px)}
+section{padding:40px 0;border-top:1px solid var(--line)}
+h2{font-size:26px;margin:0 0 18px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.dot,.caret{animation:none}html{scroll-behavior:auto}}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.filters button{background:var(--card);border:1px solid var(--line);color:var(--text);padding:6px 14px;border-radius:999px;cursor:pointer;font-size:14px;font-family:inherit}
+.filters button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;margin:0}
+.tags li{background:var(--card);border:1px solid var(--line);padding:6px 14px;border-radius:999px;font-size:14px;transition:transform .15s,border-color .15s}
+.tags li:hover{transform:translateY(-3px);border-color:var(--accent)}
+.tags li.hide{display:none}
+.label{color:var(--muted);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin:28px 0 10px}
+#skills h2+.label{margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.08)}
+.card h3{margin:0 0 8px;font-size:19px}
+.card p{margin:0 0 12px;color:var(--muted);font-size:15px}
+.more{display:none;margin-bottom:12px;color:var(--muted);font-size:15px}
+.card.open .more{display:block}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.chips span{font-size:12px;background:var(--bg);border:1px solid var(--line);padding:2px 10px;border-radius:999px}
+.row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+a.lnk,.contact a,.links a{color:var(--accent);text-decoration:none;font-weight:600}
+.link-btn{background:none;border:0;color:var(--muted);cursor:pointer;font:inherit;font-size:14px;padding:0}
+.job h3{margin:0;font-size:18px}
+.job .meta{color:var(--muted);font-size:14px;margin:2px 0 10px}
+.job ul,.certs{margin:0;padding-left:20px;color:var(--muted)}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.why .card h3{font-size:17px}
+form{display:grid;gap:10px;max-width:520px;margin-top:16px}
+input,textarea{width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit}
+.links{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px}
+footer{padding:28px 0 90px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;box-shadow:0 6px 18px rgba(0,0,0,.25);margin:0}
+#toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:var(--text);color:var(--bg);padding:8px 16px;border-radius:999px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .3s;z-index:40}
+#toast.show{opacity:1}
+</style>
+</head>
+<body>
+<header class="bar"><div class="wrap">
+<span class="logo">Sai Sujith</span>
+<nav id="nav"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#why">Why me</a><a href="#contact">Contact</a></nav>
+<button id="theme" aria-label="Toggle theme">🌓</button>
+</div></header>
+
+<div class="wrap">
+<div class="hero">
+<span class="badge"><span class="dot"></span>Open to internships &amp; entry-level roles</span>
+<h1>Hi, I’m Chava Sai Sujith.</h1>
+<div class="role"><span id="typed"></span><span class="caret"></span></div>
+<p>Third-year AI &amp; Data Science student at VVIT. I build full-stack web apps and explore LLMs and RAG, and I ship projects that are live on the internet.</p>
+<a class="btn" id="hire" href="#contact">Hire me</a>
+<a class="btn alt" href="#projects">See my projects</a>
+</div>
+
+<section id="about" class="reveal">
+<h2>About me</h2>
+<p>I’m a B.Tech student in Artificial Intelligence and Data Science at Vasireddy Venkatadri Institute of Technology (2024–2028), based in Guntur, Andhra Pradesh. I enjoy turning ideas into working products, from full-stack web apps to AI tools, and I’m learning how LLMs, RAG, and QLoRA work in practice.</p>
+</section>
+
+<section id="skills" class="reveal">
+<h2>Skills</h2>
+<div class="label">Languages</div>
+<ul class="tags"><li>C</li><li>Java</li><li>Python</li><li>SQL</li></ul>
+<div class="label">CS fundamentals</div>
+<ul class="tags"><li>Data Structures &amp; Algorithms</li><li>DBMS</li><li>OOP</li><li>Computer Networks</li></ul>
+<div class="label">Web development</div>
+<ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>React</li><li>Node.js</li></ul>
+<div class="label">Data &amp; AI</div>
+<ul class="tags"><li>Data Science</li><li>Statistics</li><li>ML basics</li><li>LLMs</li><li>RAG</li><li>QLoRA (in progress)</li></ul>
+<div class="label">Tools &amp; platforms</div>
+<ul class="tags"><li>Git</li><li>Firebase</li><li>Render</li><li>Neon</li></ul>
+</section>
+
+<section id="experience" class="reveal">
+<h2>Experience</h2>
+<div class="job">
+<h3>Web Development Intern · SkillCraft Technology</h3>
+<div class="meta">2024 · 1 month</div>
+<ul>
+<li>Built an interactive dashboard with HTML, CSS, and JavaScript to visualize data dynamically.</li>
+<li>Developed a stopwatch web app with start, stop, and reset.</li>
+<li>Created a quiz game with score tracking, a timer, and dynamic question rendering.</li>
+</ul>
+</div>
+</section>
+
+<section id="projects" class="reveal">
+<h2>Projects</h2>
+<div class="grid">
+<article class="card">
+<h3>Career Vision Hub</h3>
+<p>A full-stack career guidance app for Indian students after 10th class.</p>
+<div class="more">A metro-map metaphor shows educational streams across 25+ engineering branches. Includes user sign-in with Firebase Authentication, a Neon (PostgreSQL) database, and both frontend and backend deployed on Render.</div>
+<div class="chips"><span>Full-stack</span><span>FastAPI</span><span>Firebase Auth</span><span>PostgreSQL</span><span>Render</span></div>
+<div class="row"><a class="lnk" href="https://career-vision-hub.onrender.com" target="_blank" rel="noopener">Live site →</a><button class="link-btn">Show more</button></div>
+</article>
+<article class="card">
+<h3>Navatech Assistant (RAG Chatbot)</h3>
+<p>An AI assistant for Navatech, a software company. It answers questions using Retrieval-Augmented Generation (RAG).</p>
+<div class="more">Replies are grounded in the source material rather than guessed, which makes the answers easier to trust and check. Deployed live on Render.</div>
+<div class="chips"><span>LLM</span><span>RAG</span><span>Render</span></div>
+<div class="row"><a class="lnk" href="https://rag-chatbot-8ei0.onrender.com" target="_blank" rel="noopener">Live demo →</a><button class="link-btn">Show more</button></div>
+</article>
+</div>
+</section>
+
+<section id="why" class="reveal">
+<h2>Why hire me</h2>
+<div class="why">
+<div class="card"><h3>I ship real projects</h3><p>My work is deployed and usable online, not just code on my laptop.</p></div>
+<div class="card"><h3>I keep learning</h3><p>Currently studying LLMs, RAG, and QLoRA, with several certifications completed.</p></div>
+<div class="card"><h3>Solid fundamentals</h3><p>Data structures, DBMS, OOP, and practice on LeetCode, HackerRank, and CodeChef.</p></div>
+</div>
+</section>
+
+<section id="certs" class="reveal">
+<h2>Certifications</h2>
+<ul class="certs">
+<li>LLM Core Track: LLMs, RAG &amp; QLoRA, Udemy (in progress)</li>
+<li>Generative AI Mastermind, Outskill</li>
+<li>Object-Oriented Programming through Java, CodeTantra</li>
+<li>SQL (Basic), HackerRank</li>
+<li>NPTEL Elite: Modern Application Development with C++, IIT Kharagpur</li>
+</ul>
+</section>
+
+<section id="contact" class="contact reveal">
+<h2>Let’s work together</h2>
+<p>Fill this in and a ready-to-send email opens in Gmail. Prefer another app? Use “Copy my email”.</p>
+<form id="form">
+<input id="fn" placeholder="Your name" required>
+<input id="fe" type="email" placeholder="Your email" required>
+<textarea id="fm" rows="4" placeholder="Tell me about the role or project" required></textarea>
+<div><button class="btn" type="submit">Send message</button><button class="btn alt" type="button" id="copy">Copy my email</button></div>
+</form>
+<div class="links">
+<a href="https://github.com/sujith-23" target="_blank" rel="noopener">GitHub</a>
+<a href="https://www.linkedin.com/in/s-undefined-40a42a446/" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://leetcode.com/u/sai_sujit/" target="_blank" rel="noopener">LeetCode</a>
+<a href="https://www.hackerrank.com/profile/chavasaisujith01" target="_blank" rel="noopener">HackerRank</a>
+<a href="https://www.codechef.com/users/hard_smile_58" target="_blank" rel="noopener">CodeChef (Contests)</a>
+<a href="https://www.codechef.com/users/vvit24bq1a5423" target="_blank" rel="noopener">CodeChef (College)</a>
+</div>
+</section>
+
+<footer>© 2026 Chava Sai Sujith</footer>
+</div>
+
+<a class="btn fab" href="#contact">Hire me</a>
+<div id="toast"></div>
+
+<script>
+(function(){
+var EMAIL="chavasaisujith06@gmail.com";
+// typing effect
+var roles=["Full-stack web developer","AI & Data Science student","LLM & RAG explorer"],ri=0,ci=0,del=false,el=document.getElementById("typed");
+function tick(){var w=roles[ri];el.textContent=w.slice(0,ci);
+if(!del&&ci<w.length){ci++;setTimeout(tick,70)}
+else if(!del){del=true;setTimeout(tick,2000)}
+else if(ci>0){ci--;setTimeout(tick,35)}
+else{del=false;ri=(ri+1)%roles.length;setTimeout(tick,300)}}
+tick();
+// reveal on scroll
+var rs=document.querySelectorAll(".reveal");
+if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12});rs.forEach(function(r){io.observe(r)})}else{rs.forEach(function(r){r.classList.add("in")})}
+// skill filters
+var fb=document.querySelectorAll("#filters button"),sk=document.querySelectorAll("#skillList li");
+fb.forEach(function(b){b.addEventListener("click",function(){fb.forEach(function(x){x.classList.remove("on")});b.classList.add("on");var f=b.dataset.f;sk.forEach(function(li){li.classList.toggle("hide",f!=="all"&&li.dataset.c!==f)})})});
+// project expand
+document.querySelectorAll(".card .link-btn").forEach(function(b){b.addEventListener("click",function(){var c=b.closest(".card");c.classList.toggle("open");b.textContent=c.classList.contains("open")?"Show less":"Show more"})});
+// toast
+var t=document.getElementById("toast");function toast(m){t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2200)}
+document.getElementById("copy").addEventListener("click",function(){
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(EMAIL).then(function(){toast("Email copied")},function(){toast(EMAIL)})}else{toast(EMAIL)}});
+document.getElementById("form").addEventListener("submit",function(e){e.preventDefault();
+var n=document.getElementById("fn").value,em=document.getElementById("fe").value,m=document.getElementById("fm").value;
+var body="Hi Sujith,\n\n"+m+"\n\nFrom: "+n+" ("+em+")";
+var a=document.createElement("a");a.href="https://mail.google.com/mail/?view=cm&fs=1&to="+EMAIL+"&su="+encodeURIComponent("Opportunity from "+n)+"&body="+encodeURIComponent(body);a.target="_blank";a.rel="noopener";document.body.appendChild(a);a.click();a.remove();toast("Opening Gmail…")});
+// active nav link
+var links=document.querySelectorAll("#nav a"),secs=[].map.call(links,function(a){return document.querySelector(a.getAttribute("href"))});
+window.addEventListener("scroll",function(){var y=window.scrollY+120,cur=-1;secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i});links.forEach(function(a,i){a.classList.toggle("on",i===cur)})},{passive:true});
+// theme toggle
+var root=document.documentElement,btn=document.getElementById("theme");
+btn.addEventListener("click",function(){var dark=root.getAttribute("data-theme")==="dark"||(root.getAttribute("data-theme")!=="light"&&matchMedia("(prefers-color-scheme:dark)").matches);root.setAttribute("data-theme",dark?"light":"dark");try{localStorage.setItem("theme",dark?"light":"dark")}catch(e){}});
+try{var s=localStorage.getItem("theme");if(s)root.setAttribute("data-theme",s)}catch(e){}
+})();
+</script>
+</body>
+</html>
